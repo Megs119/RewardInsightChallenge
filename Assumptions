@@ -1,0 +1,7 @@
+Assumptions:
+1.	Employee cannot edit previously submitted feedback 
+2.	Employee cannot delete previously submitted feedback 
+3.	There is more than one admin account 
+4.	Admin cannot submit feedback on performance reviews on their own or another admins entry
+5.	Admin can assign multiple employees at a time to one performance review (many - 1)
+6.	Admin can assign one employee to multiple performance reviews (1 - many)
