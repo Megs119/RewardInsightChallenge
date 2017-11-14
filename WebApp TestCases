@@ -1,4 +1,4 @@
-//Admin Test cases
+//ADMIN VIEW TEST CASES
 //Verify user can successfully log in 
 
 Navigate to login 
@@ -48,3 +48,15 @@ Verify employee is
 
 
 //4.	Verify admin can view employees 
+//5.	Verify employees cannot be duplicated
+//6.	Verify admin can add performance reviews to employees 
+//7.	Verify admin can update performance reviews of employees
+//8.	Verify admin can view performance reviews of employees
+//9.	Verify admin cannot remove employee performance reviews 
+//10.	Verify admin cannot add performance review to a deleted employee
+//11.	Verify admin cannot submit feedback on performance reviews 
+//12.	Verify admin can assign a single employee to participate in another employee’s performance review
+//13.	Verify admin can assign multiple employees to participate in another employee’s performance review
+//14.	Verify deleted employees can no longer be viewed (including performance review)
+//15.	Verify deleted employee no longer appears on employees list of performance reviews requiring feedbac//k
+
