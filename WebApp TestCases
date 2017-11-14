@@ -26,15 +26,16 @@ IF createEmployeeSuccess = true
 ELSE print error 
 
 
- 
-
-
 
 //2.	Verify admin can update employees
 
-
-
-
+IF userLoginSuccess = true 
+ THEN Display EmployeeList
+Enter "Megan Devenney" into Searchbar
+  Click Enter
+  Verify employee entry displays  
+Click "Edit"
+Verify employee is 
 
 
 
