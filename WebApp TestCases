@@ -340,3 +340,18 @@ Enter "Megan Rogan" into Searchbar
 
 
 //20.	Verify employees cannot access a performance review, if they are not assigned
+User = Megan Rogan
+EmployeeFeedbackURL = Jolene Shaw
+//Megan is not assigned to Jolene's Performance review
+
+IF userLoginSuccess = true 
+ THEN Display EmployeeList
+ELSE
+  Print ("Invalid Login details")
+Get EmployeeFeedbackURL
+Paste EmployeeFeedbackURL into address bar
+IF AccessError = true
+  THEN 
+    RETURN testcase.passed
+ELSE
+   RETURN testcase.failed
