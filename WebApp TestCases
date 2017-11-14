@@ -1,9 +1,32 @@
 //Admin Test cases
+//Verify user can successfully log in 
+
+Navigate to login 
+IF (UserType = Admin AND UserLoginDetails = true)
+  THEN nav to admin view 
+IF (UserType = Employee AND UserLoginDetails = true)
+  THEN nav to employee view 
+ELSE
+  Print ("Invalid Login details")
+
 //1.	Verify admin can add employees 
+user = Admin 
+
+IF userLoginSuccess = true 
+ THEN Display EmployeeList
+Click "Add Employee"
+Set Fullname = 'Megan Devenney'
+Set JobTitle = 'QA Engineer'
+Click "Create Employee"
+IF createEmployeeSuccess = true
+  THEN Display EmployeeList
+  Enter "Megan Devenney" into Searchbar
+  Click Enter
+  Verify employee entry displays  
+ELSE print error 
 
 
-
-
+ 
 
 
 
