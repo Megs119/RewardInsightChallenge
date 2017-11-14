@@ -174,18 +174,124 @@ Paste EmployeeFeedbackURL into address bar
 IF AccessError = true
   THEN 
     RETURN testcase.passed
-ELSE RETURN testcase.failed
+ELSE
+   RETURN testcase.failed
 
 
 
 //10.	Verify admin can assign a single employee to participate in another employee’s performance review
+IF userLoginSuccess = true 
+ THEN Display EmployeeList
+ELSE
+  Print ("Invalid Login details")
+Enter "Megan Devenney" into Searchbar
+  Click Enter
+  Verify employee entry displays  
+Click "Assign"
+If popup is displayed
+  Enter "Patrick Walker" 
+  Click Assign
+  IF AssignEmployeeSuccess = true
+   THEN print success 
+   RETURN testcase.passed
+  ELSE print error
+  RETURN testcase.failed
+ELSE print error
+RETURN testcase.failed
+
+
 //11. Verify admin can assign multiple employees to participate in another employee’s performance review
+IF userLoginSuccess = true 
+ THEN Display EmployeeList
+ELSE
+  Print ("Invalid Login details")
+Enter "Megan Devenney" into Searchbar
+  Click Enter
+  Verify employee entry displays  
+Click "Assign"
+If popup is displayed
+  Enter "Patrick Walker, John Bakewell, Richard Shaw" 
+  Click Assign
+  IF AssignEmployeeSuccess = true
+   THEN print success 
+   RETURN testcase.passed
+  ELSE print error
+  RETURN testcase.failed
+ELSE print error
+RETURN testcase.failed
+
 //12.	Verify deleted employees can no longer be viewed (including performance review)
-//13	Verify deleted employee no longer appears on employees list of performance reviews requiring feedbac//k
+IF userLoginSuccess = true 
+ THEN Display EmployeeList
+ELSE
+  Print ("Invalid Login details")
+Enter "Megan Devenney" into Searchbar
+  Click Enter
+  Verify employee entry displays 
+Check employee checkbox
+Locate Dropdown
+Set dropdown = Delete
+Click Apply
+IF deleteEmployeeSuccess = true
+  THEN print success 
+ELSE print error
+ RETURN testcase.failed
+Enter "Megan Devenney" into Searchbar
+Click Enter
+  IF return value = null 
+    RETURN testcase.passed
+  ELSE 
+    RETURN testcase.failed
 
 //EMPLOYEE VIEW TEST CASES
+
+//13	Verify deleted employee no longer appears on employees list of performance reviews requiring feedback
+User = Employee
+DeletedEmployee = Ellie Rogan (previously assigned to Megan Devenney to leave feedback)
+IF userLoginSuccess = true 
+ THEN Display EmployeeList
+ELSE
+  Print ("Invalid Login details")
+Enter "Ellie Rogan" into Searchbar
+  Click Enter
+  IF value returned = true
+    RETURN testcase.failed
+  ELSE
+    RETURN testcase.passed
+ 
+  
 //14.	Verify employee can submit feedback on performance reviews 
+
+IF userLoginSuccess = true 
+ THEN Display EmployeeList
+ELSE
+  Print ("Invalid Login details")
+Verify EmployeeFeedbacklist is displayed
+Enter "Megan Rogan" into Searchbar
+  Click Enter
+  Verify employee entry displays  
+Click "Leave Feedback"
+Employee is directed to Performance Review
+Set Employeefeedback = "*****************"
+Click Submit
+IF SubmitFeedbackSuccess = true
+  THEN print success 
+  RETURN testcase.passed
+ELSE print error
+RETURN testcase.failed
+
+
 //15.	Verify employee cannot delete feedback previously submitted 
+
+Following from above Testcase (TC14)
+
+Locate Delete 
+IF deleteButton = true
+  RETURN testcase.failed
+ELSE
+   RETURN testcase.passed
+ 
+
 //16.	Verify employee cannot edit feedback previously submitted
 //17.	Verify employees cannot add new employees
 //18.	Verify employee cannot delete employees
