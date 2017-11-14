@@ -1,5 +1,5 @@
 //ADMIN VIEW TEST CASES
-//Verify user can successfully log in 
+//User Login 
 
 Navigate to login 
 IF (UserType = Admin AND UserLoginDetails = true)
@@ -9,11 +9,14 @@ IF (UserType = Employee AND UserLoginDetails = true)
 ELSE
   Print ("Invalid Login details")
 
+
 //1.	Verify admin can add employees 
 user = Admin 
 
 IF userLoginSuccess = true 
  THEN Display EmployeeList
+ELSE
+  Print ("Invalid Login details")
 Click "Add Employee"
 Set Fullname = 'Megan Devenney'
 Set JobTitle = 'QA Engineer'
@@ -23,40 +26,168 @@ IF createEmployeeSuccess = true
   Enter "Megan Devenney" into Searchbar
   Click Enter
   Verify employee entry displays  
+  RETURN testcase.passed
 ELSE print error 
-
-
+RETURN testcase.failed
 
 //2.	Verify admin can update employees
 
 IF userLoginSuccess = true 
  THEN Display EmployeeList
+ELSE
+  Print ("Invalid Login details")
 Enter "Megan Devenney" into Searchbar
   Click Enter
   Verify employee entry displays  
 Click "Edit"
-Verify employee is 
-
+Admin is directed to employee profile
+Set Fullname = "Megan Rogan"
+Click Save
+IF EditEmployeeSuccess = true
+  THEN print success 
+  RETURN testcase.passed
+ELSE print error
+RETURN testcase.failed
 
 
 
 //3.	Verify admin can remove employees
-
-
-
+IF userLoginSuccess = true 
+ THEN Display EmployeeList
+ELSE
+  Print ("Invalid Login details")
+Enter "Megan Devenney" into Searchbar
+  Click Enter
+  Verify employee entry displays 
+Check employee checkbox
+Locate Dropdown
+Set dropdown = Delete
+Click Apply
+IF deleteEmployeeSuccess = true
+  THEN print success 
+  RETURN testcase.passed
+ELSE print error
+RETURN testcase.failed
 
 
 
 //4.	Verify admin can view employees 
-//5.	Verify employees cannot be duplicated
-//6.	Verify admin can add performance reviews to employees 
-//7.	Verify admin can update performance reviews of employees
-//8.	Verify admin can view performance reviews of employees
-//9.	Verify admin cannot remove employee performance reviews 
-//10.	Verify admin cannot add performance review to a deleted employee
-//11.	Verify admin cannot submit feedback on performance reviews 
-//12.	Verify admin can assign a single employee to participate in another employee’s performance review
-//13.	Verify admin can assign multiple employees to participate in another employee’s performance review
-//14.	Verify deleted employees can no longer be viewed (including performance review)
-//15.	Verify deleted employee no longer appears on employees list of performance reviews requiring feedbac//k
+IF userLoginSuccess = true 
+ THEN Display EmployeeList
+ELSE
+  Print ("Invalid Login details")
+Enter "Megan Devenney" into Searchbar
+  Click Enter
+  Verify employee entry displays  
+Click "Edit"
+Admin is directed to employee profile
+Verify display
+***********************
 
+//5.	Verify employees cannot be duplicated
+user = Admin 
+
+IF userLoginSuccess = true 
+ THEN Display EmployeeList
+ELSE
+  Print ("Invalid Login details")
+Click "Add Employee"
+Set Fullname = 'Megan Devenney'
+Set JobTitle = 'QA Engineer'
+Click "Create Employee"
+IF createEmployeeSuccess = false
+  THEN print error "Employee already exists"
+  RETURN testcase.passed
+Else print success 
+RETURN testcase.failed
+
+//6.	Verify admin can add performance reviews to employees 
+IF userLoginSuccess = true 
+ THEN Display EmployeeList
+ELSE
+  Print ("Invalid Login details")
+Enter "Megan Devenney" into Searchbar
+  Click Enter
+  Verify employee entry displays  
+Click "Edit"
+Admin is directed to employee profile
+Set Performance review = *****************************************************************************
+Click Save
+IF EditEmployeeSuccess = true
+  THEN print success 
+  RETURN testcase.passed
+ELSE print error
+RETURN testcase.failed
+
+
+//7.	Verify admin can update performance reviews of employees
+IF userLoginSuccess = true 
+ THEN Display EmployeeList
+ELSE
+  Print ("Invalid Login details")
+Enter "Megan Devenney" into Searchbar
+  Click Enter
+  Verify employee entry displays  
+Click "Edit"
+Admin is directed to employee profile
+****************************************************************************
+Set Performance review = *****************************************************************************
+Click Save
+IF EditEmployeeSuccess = true
+  THEN print success 
+  RETURN testcase.passed
+ELSE print error
+RETURN testcase.failed
+
+
+
+//8.	Verify admin cannot remove employee performance reviews 
+IF userLoginSuccess = true 
+ THEN Display EmployeeList
+ELSE
+  Print ("Invalid Login details")
+Enter "Megan Devenney" into Searchbar
+  Click Enter
+  Verify employee entry displays  
+Click "Edit"
+Admin is directed to employee profile
+IF performanceReview = notnull
+THEN Set performannceReview = ''
+Click save
+  IF EditEmployeeSuccess = false
+    THEN print success 
+    RETURN testcase.passed
+  ELSE print error 
+  RETURN testcase.failed
+ELSE Logout
+RETURN testcase.failed
+
+
+
+//9.	Verify admin cannot submit feedback on performance reviews 
+IF userLoginSuccess = true 
+ THEN Display EmployeeList
+ELSE
+  Print ("Invalid Login details")
+Get EmployeeFeedbackURL
+Paste EmployeeFeedbackURL into address bar
+IF AccessError = true
+  THEN 
+    RETURN testcase.passed
+ELSE RETURN testcase.failed
+
+
+
+//10.	Verify admin can assign a single employee to participate in another employee’s performance review
+//11. Verify admin can assign multiple employees to participate in another employee’s performance review
+//12.	Verify deleted employees can no longer be viewed (including performance review)
+//13	Verify deleted employee no longer appears on employees list of performance reviews requiring feedbac//k
+
+//EMPLOYEE VIEW TEST CASES
+//14.	Verify employee can submit feedback on performance reviews 
+//15.	Verify employee cannot delete feedback previously submitted 
+//16.	Verify employee cannot edit feedback previously submitted
+//17.	Verify employees cannot add new employees
+//18.	Verify employee cannot delete employees
+//19.	Verify employee cannot update employees
+//20.	Verify employees cannot access a performance review, if they are not assigned
