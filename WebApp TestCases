@@ -285,15 +285,58 @@ RETURN testcase.failed
 
 Following from above Testcase (TC14)
 
-Locate Delete 
-IF deleteButton = true
+Locate delete.button 
+IF delete.button = true
   RETURN testcase.failed
 ELSE
    RETURN testcase.passed
  
 
 //16.	Verify employee cannot edit feedback previously submitted
+Following from above Testcase (TC14)
+
+Locate edit.button 
+IF edit.button = true
+  RETURN testcase.failed
+ELSE
+   RETURN testcase.passed
+   
+   
 //17.	Verify employees cannot add new employees
+IF userLoginSuccess = true 
+ THEN Display EmployeeList
+ELSE
+  Print ("Invalid Login details")
+Verify EmployeeFeedbacklist is displayed
+locate addEmployee.button
+  IF addEmployee.button = true
+  RETURN testcase.failed
+ELSE
+   RETURN testcase.passed
+
+
+
 //18.	Verify employee cannot delete employees
+IF userLoginSuccess = true 
+ THEN Display EmployeeList
+ELSE
+  Print ("Invalid Login details")
+Verify EmployeeFeedbacklist is displayed
+locate deleteEmployee.button
+IF deleteEmployee.button = true
+  RETURN testcase.failed
+ELSE
+Enter "Megan Rogan" into Searchbar
+  Click Enter
+  Verify employee entry displays  
+    locate deleteEmployee.button
+    IF deleteEmployee.button = true
+      RETURN testcase.failed
+    ELSE
+   RETURN testcase.passed
+   
+   
 //19.	Verify employee cannot update employees
+
+
 //20.	Verify employees cannot access a performance review, if they are not assigned
