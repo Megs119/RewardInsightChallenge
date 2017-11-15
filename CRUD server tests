@@ -5,8 +5,6 @@ Method: Post
 Endpoint: https://rewardinsightperfreviews.co.uk
 Resource: /api/employee
 Parameters: 
-"Name": X-User 
-"Value": admin.user
 
 Add Representations into Method:
 "Type": Response = application/json; charset=utf-8 Status = 200	
