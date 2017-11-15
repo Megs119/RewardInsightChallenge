@@ -1,1 +1,30 @@
+//Create_employee_Post
+//New REST Resource 
+Resource: /api/perfreview/employee
+Method: Post
+Endpoint: https://rewardinsightperfreviews.co.uk
+Resource: /api/employee
+Parameters: 
+"Name": X-User 
+"Value": admin.user
+
+Add Representations into Method:
+"Type": Response = application/json; charset=utf-8 Status = 200	
+"Type": Request = application/json
+"Type": Fault = application/json; charset=utf-8	Status = 400	
+
+Create REST Request
+Add Parameters to REST: 
+"Name": X-User 
+Value: admin.user
+"Name" X-Password
+"Value": P@55word4365!
+
+Create new test case
+Under Test Steps > Add new Step > REST Request> Select above method
+
+{
+"fullname": "Megan Devenney",
+"Job title": "QA Engineer"
+}
 
