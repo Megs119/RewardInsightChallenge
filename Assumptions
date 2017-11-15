@@ -6,3 +6,24 @@ Assumptions:
 5.	Admin can assign multiple employees at a time to one performance review (many - 1)
 6.	Admin can assign one employee to multiple performance reviews (1 - many)
 7.  Employees cannot view other employee's feedback
+
+
+Admin view 
+-	Log in default – employees’ name list 
+-	Add Employee button at top of page
+-	Drop down to “Mass Update” and “Delete” below 
+-	“Apply” button located next to drop down
+-	Search bar located at top of employee list
+-	Each entry has “Edit” and “Assign” buttons located right of row
+-	Each entry has check box located left of name
+-	Clicking on Employee name or “Edit” will direct admin to employee profile
+-	Employee Profile will have following fields: “Full name” and “Job Title” 
+-	Text box will be located on Employee profile to complete review
+-	“Save” and “Cancel” buttons 
+
+Employee view
+-	Log in default – List of employees’ names requiring performance review feedback
+-	Each entry has “Leave Feedback” buttons located right of row
+-	“Leave Feedback” button will direct user to employee review
+-	Text box will be located here to leave feedback
+-	“Submit” and “Cancel” buttons 
