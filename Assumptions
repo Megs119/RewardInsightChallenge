@@ -7,7 +7,7 @@ Assumptions:
 6.	Admin can assign one employee to multiple performance reviews (1 - many)
 7.	Employees cannot view other employee's feedback
 8.	Employees cannot view or leave feedback if not assigned
-8.	Internal system - only one organisation has access
+9.	Internal system - only one organisation has access
 
 Admin view 
 -	Log in default – employees’ name list 
